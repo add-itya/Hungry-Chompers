@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  background-color: #ed7472;
+}
+
+.container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #ed7472;
+}
