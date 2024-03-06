@@ -1,12 +1,10 @@
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 30vh;
-  background-color: #ed7472;
-}
-
-.container {
+  color: #ed7472;
   background-color: white;
   border-radius: 20px;
   padding: 20px;
@@ -15,4 +13,13 @@
 
 h1 {
   color: #ed7472;
+}
+.SubmitButton{
+  background-color: #ed7472;
+  color: white;
+  border: none;
+  font-size: 20px;
+  height: 30px;
+  width: 100px;
+  border-radius: 15px;
 }
