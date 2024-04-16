@@ -37,8 +37,9 @@ function HomePage({ navigateToAccountPage, handleLogin }) {
           </label>
           <button className='SubmitButton' type="submit">Submit</button>
           <p></p>
-          <button className='CreateAccountButton' onClick={navigateToAccountPage}>Create Account</button>
         </form>
+        <h2>Create Account</h2>
+        <button className='CreateAccountButton' onClick={navigateToAccountPage}>Account Creation Page</button>
       </div>
     </div>
   );

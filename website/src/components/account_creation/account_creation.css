@@ -1,43 +1,121 @@
-/* account_creation.css */
-
-/* Container */
-.account-creation-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Form */
-.account-creation-form {
+.container {
     display: flex;
     flex-direction: column;
-}
-
-.account-creation-form label {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.account-creation-form input {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.account-creation-form button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    color: #ed7472;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #ed7472;
+  }
+  .SubmitButton{
+    background-color: #ed7472;
+    color: white;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    font-size: 20px;
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+  }
+  .CreateAccountButton{
+  background-color: #ed7472;
+    color: white;
+    border: none;
+    font-size: 20px;
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+  }
+  .container1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    color: #ed7472;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  .container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    color: #ed7472;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #ed7472;
+  }
+  .SubmitButton{
+    background-color: #ed7472;
+    color: white;
+    border: none;
+    font-size: 20px;
+    height: 100px;
+    width: 100px;
+    border-radius: 15px;
+  }
+  .CreateAccountButton{
+    background-color: #ed7472;
+    color: white;
+    border: none;
+    font-size: 20px;
+    height: 80px;
+    width: 100px;
+    border-radius: 15px;
+  }
+  .container1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    color: #ed7472;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  .container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    color: #ed7472;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #ed7472;
+  }
+
+label{
+    margin-right: 10px;
 }
 
-.account-creation-form button:hover {
-    background-color: #0056b3;
-}
-
-/* Additional styles specific to the account creation page */
-/* ... */
+  .SubmitButton{
+    background-color: #ed7472;
+    color: white;
+    border: none;
+    font-size: 20px;
+    height: 50px;
+    width: 100
+  }
