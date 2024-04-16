@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import './home_page.css';
 
-function HomePage({navigateToAccountPage}) {
+function HomePage({ navigateToAccountPage, handleLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     // Logging username and password (for educational/testing purposes only)
     console.log("Username:", email);
     console.log("Password:", password);
     // check if email is in the database and if the password matches
+    var match = true;
+    if (match === true) {
+      // Call handleLogin function to set isLoggedIn state to true
+      handleLogin();
+    }
   };
 
   return (
@@ -21,7 +26,7 @@ function HomePage({navigateToAccountPage}) {
       </div>
       <div className='SignIn'>
         <h2>Sign In</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             Email:
             <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -30,7 +35,7 @@ function HomePage({navigateToAccountPage}) {
             Password:
             <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </label>
-          <button className='SubmitButton' onClick={handleLogin}>Submit</button>
+          <button className='SubmitButton' type="submit">Submit</button>
           <p></p>
           <button className='CreateAccountButton' onClick={navigateToAccountPage}>Create Account</button>
         </form>
