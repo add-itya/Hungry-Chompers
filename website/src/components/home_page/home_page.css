@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 30vh;
+  height: 40vh;
   color: #ed7472;
   background-color: white;
   border-radius: 20px;
@@ -22,4 +22,95 @@ h1 {
   height: 30px;
   width: 100px;
   border-radius: 15px;
+}
+.CreateAccountButton{
+background-color: #ed7472;
+  color: white;
+  border: none;
+  font-size: 20px;
+  height: 30px;
+  width: 100px;
+  border-radius: 15px;
+}
+.container1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  color: #ed7472;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+.container2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  color: #ed7472;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #ed7472;
+}
+.SubmitButton{
+  background-color: #ed7472;
+  color: white;
+  border: none;
+  font-size: 20px;
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+}
+.CreateAccountButton{
+  background-color: #ed7472;
+  color: white;
+  border: none;
+  font-size: 20px;
+  height: 80px;
+  width: 100px;
+  border-radius: 15px;
+}
+.container1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  color: #ed7472;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+.container2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  color: #ed7472;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #ed7472;
+}
+.SubmitButton{
+  background-color: #ed7472;
+  color: white;
+  border: none;
+  font-size: 20px;
+  height: 30px;
+  width: 100
 }

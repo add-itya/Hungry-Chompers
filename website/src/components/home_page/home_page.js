@@ -1,7 +1,11 @@
 import React from 'react';
 import './home_page.css';
 
-function HomePage() {
+function HomePage({navigateToAccountPage}) {
+  const handleCreateAccount = () => {
+    // Logic to switch to account creation page
+  };
+
   return (
     <div className="container">
       <div className='WelcomeText'>
@@ -20,6 +24,8 @@ function HomePage() {
             <input type="password" name="password" />
           </label>
           <button className='SubmitButton'>Submit</button>
+          <p></p>
+          <button className='CreateAccountButton' onClick={navigateToAccountPage}>Create Account</button>
         </form>
       </div>
     </div>
