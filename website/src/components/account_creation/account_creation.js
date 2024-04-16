@@ -6,19 +6,24 @@ function AccountCreation() {
         <div className="container">
             <div className='WelcomeText'>
                 <h1>Account Creation</h1>
-                <p>To make an account please enter an email and password below.</p>
+                <p>To make an account please fill in the information.</p>
             </div>
             <div className='Creation'>
                 <form>
                     <label>
-                        Email:
+                        Email: 
                         <input type="text" name="email" />
                     </label>
                     <label>
-                        Password:
+                        Username (how other users will see you): 
+                        <input type="text" name="username" />
+                    </label>
+                    <label>
+                        Password: 
                         <input type="password" name="password" />
                     </label>
-                    <button className='SubmitButton'>Submit</button>
+                    <p></p>
+                    <button className='SubmitButton'>Create Account</button>
                 </form>
             </div>
         </div>
