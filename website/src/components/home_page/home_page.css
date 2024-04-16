@@ -3,12 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  height: 40vh;
-=======
   height: 100vh;
   width: 60vw;
->>>>>>> 8f3b8799c656de2993b0ee032fe9bfe0544dc378
   color: #ed7472;
   background-color: white;
   border-radius: 20px;
@@ -19,12 +15,8 @@
 h1 {
   color: #ed7472;
 }
-<<<<<<< HEAD
-.SubmitButton{
-=======
 
 .SubmitButton {
->>>>>>> 8f3b8799c656de2993b0ee032fe9bfe0544dc378
   background-color: #ed7472;
   color: white;
   border: none;
@@ -33,99 +25,6 @@ h1 {
   width: 100px;
   border-radius: 15px;
 }
-<<<<<<< HEAD
-.CreateAccountButton{
-background-color: #ed7472;
-  color: white;
-  border: none;
-  font-size: 20px;
-  height: 30px;
-  width: 100px;
-  border-radius: 15px;
-}
-.container1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30vh;
-  color: #ed7472;
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-}
-.container2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30vh;
-  color: #ed7472;
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-}
-
-h1 {
-  color: #ed7472;
-}
-.SubmitButton{
-  background-color: #ed7472;
-  color: white;
-  border: none;
-  font-size: 20px;
-  height: 100px;
-  width: 100px;
-  border-radius: 15px;
-}
-.CreateAccountButton{
-  background-color: #ed7472;
-  color: white;
-  border: none;
-  font-size: 20px;
-  height: 80px;
-  width: 100px;
-  border-radius: 15px;
-}
-.container1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30vh;
-  color: #ed7472;
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-}
-.container2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30vh;
-  color: #ed7472;
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-}
-
-h1 {
-  color: #ed7472;
-}
-.SubmitButton{
-  background-color: #ed7472;
-  color: white;
-  border: none;
-  font-size: 20px;
-  height: 30px;
-  width: 100
-}
-=======
 
 .CreateAccountButton {
   background-color: #ed7472;
@@ -142,4 +41,3 @@ img {
   width: 200px; /* Set the width of images */
   height: auto; /* Maintain aspect ratio */
 }
->>>>>>> 8f3b8799c656de2993b0ee032fe9bfe0544dc378

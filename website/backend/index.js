@@ -63,4 +63,19 @@ app.post("/register", async (req, resp) => {
 		resp.send("Something Went Wrong");
 	}
 });
+
+app.post("/login", async (req, resp) => {
+	try {
+	  const { email, password } = req.body;
+	  const user = await User.findOne({ email, password });
+	  if (user) {
+		resp.send({ success: true, message: "Login successful" });
+	  } else {
+		resp.status(401).send({ success: false, message: "Invalid email or password" });
+	  }
+	} catch (e) {
+	  resp.status(500).send({ success: false, message: "Something went wrong" });
+	}
+  });  
+
 app.listen(5000);
