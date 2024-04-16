@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* account_creation.css */
 
 /* Container */
@@ -41,3 +42,126 @@
 
 /* Additional styles specific to the account creation page */
 /* ... */
+=======
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    color: #ed7472;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #ed7472;
+  }
+  .SubmitButton{
+    background-color: #ed7472;
+    color: white;
+    border: none;
+    font-size: 20px;
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+  }
+  .CreateAccountButton{
+  background-color: #ed7472;
+    color: white;
+    border: none;
+    font-size: 20px;
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+  }
+  .container1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    color: #ed7472;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  .container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    color: #ed7472;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #ed7472;
+  }
+  .SubmitButton{
+    background-color: #ed7472;
+    color: white;
+    border: none;
+    font-size: 20px;
+    height: 100px;
+    width: 100px;
+    border-radius: 15px;
+  }
+  .CreateAccountButton{
+    background-color: #ed7472;
+    color: white;
+    border: none;
+    font-size: 20px;
+    height: 80px;
+    width: 100px;
+    border-radius: 15px;
+  }
+  .container1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    color: #ed7472;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  .container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    color: #ed7472;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #ed7472;
+  }
+
+label{
+    margin-right: 10px;
+}
+
+  .SubmitButton{
+    background-color: #ed7472;
+    color: white;
+    border: none;
+    font-size: 20px;
+    height: 50px;
+    width: 100
+  }
+>>>>>>> 8f3b8799c656de2993b0ee032fe9bfe0544dc378
