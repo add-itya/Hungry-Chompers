@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './home_page.css';
 
 function HomePage({navigateToAccountPage}) {
-  const handleCreateAccount = () => {
-    // Logic to switch to account creation page
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    // Logging username and password (for educational/testing purposes only)
+    console.log("Username:", email);
+    console.log("Password:", password);
+    // check if email is in the database and if the password matches
   };
 
   return (
@@ -17,13 +24,13 @@ function HomePage({navigateToAccountPage}) {
         <form>
           <label>
             Email:
-            <input type="text" name="email" />
+            <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </label>
           <label>
             Password:
-            <input type="password" name="password" />
+            <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </label>
-          <button className='SubmitButton'>Submit</button>
+          <button className='SubmitButton' onClick={handleLogin}>Submit</button>
           <p></p>
           <button className='CreateAccountButton' onClick={navigateToAccountPage}>Create Account</button>
         </form>
