@@ -1,7 +1,9 @@
 import React from 'react';
 import './account_creation.css';
 import { useState } from 'react'
-
+import logo from '../icons/HungryChompersLogo.png';
+import blankProfile from '../icons/BlankProfilePicture.png';
+import { useNavigate } from 'react-router-dom';
 
 function AccountCreation() {
     const [email, setemail] = useState("");
@@ -24,8 +26,40 @@ function AccountCreation() {
             setemail("");
         }
     }
+
+    const navigate = useNavigate();
+
+    const goToNewPage = page => {
+        navigate(page);
+    };
+
+    let homepage = '/';
+    let accountpage = '/account_creation';
+
     return (
-        <div classemail="container">
+
+        <div className="page">
+
+            <div className="HeaderBar">
+
+                <div className = "Logo_Name">
+                    <img className = "Logo" src={logo}/>
+                    <p className = "Name">Hungry Chompers</p>
+                </div>
+
+                <div className = "HeaderButtonDiv">
+                    <button className='HeaderButton' onClick={() => goToNewPage(homepage)} >Home</button>
+                    <button className='HeaderButton'>About Us</button>
+                    <button className='HeaderButton'>Contact</button>
+                </div>
+
+                <div className = "HeaderProfile">
+                    <img className='ProfilePicture' src={blankProfile}/>
+                </div>      
+       
+            </div>
+        
+        <div className="HomeContainer">
             <div classemail='WelcomeText'>
                 <h1>Account Creation</h1>
                 <p>To make an account please enter an password and password below.</p>
@@ -51,6 +85,7 @@ function AccountCreation() {
                     onClick={handleOnSubmit}>submit</button>
                 </form>
             </div>
+        </div>
         </div>
     );
 }

@@ -1,116 +1,281 @@
-.container {
+/* These are the styles for the containers of the Home Page*/
+
+.page{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: #ed7472;
+  background-color: #F5DEB3;
+  text-align: center;
+  height: 100vh;
+  width: 90vw;
+}
+
+.HeaderBar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 0px 5px 10px;
+  background-color: #967969;
+  color: white;
+  border-radius: 20px;
+  width: 65%;
+  top: 0;
+  }
+
+.HomeContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  color: #ed7472;
+  background-color: #F5DEB3;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  width: 60%;
+}
+
+/* These are the containers within HeaderBar */
+
+.Logo_Name{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+
+.HeaderButtonDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 5;
+  margin-right: 120px;
+}
+
+.HeaderProfile{
+  display: flex;
+  flex: 0;
+  margin-right: 20px;
+}
+
+/* These are the containers within HomeContainer */
+
+.InfoBar{
+  flex: 1.5;
+  background-color: white;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #967969;
+  margin-bottom: 37.5px;
+  padding: 10px;
+  height: 80%;
+}
+
+.LoginWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: 65vh;
   color: #ed7472;
-  background-color: white;
+  background-color: #F5DEB3;
   border-radius: 20px;
   padding: 20px;
   text-align: center;
+  flex: 2;
+  margin-left: 25px;
+  margin-bottom: 100px;
 }
 
-h1 {
-  color: #ed7472;
+/* This in the container wrapped by LoginWrapper */
+
+.SignIn{
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  height: 60%;
+  width: 55%;
+  border-radius: 15px;
+  align-items: center;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #967969;
+  padding: 10px;
 }
-.SubmitButton{
-  background-color: #ed7472;
-  color: white;
+
+/* These are the containers within SignIn */
+
+.SignInForm{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align: left;
+  height: 75%;
+}
+
+.InfoEntry{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  margin-bottom: 50px;
+}
+
+.FormButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* This is the Button Styles */
+
+.HeaderButton{
+  height: 50px;
+  border-radius: 15px;
+  color: #e1dfa2;
+  background-color: #967969;
+  font-weight: 700;
+  margin-left: 20px;
   border: none;
   font-size: 20px;
-  height: 30px;
-  width: 100px;
-  border-radius: 15px;
 }
+
+.HeaderButton:hover{
+  opacity: .7;
+  background-color: #95a46a;
+  color: white;
+}
+
+.HeaderButton:active{
+  opacity: .5;
+}
+
+.SubmitButton{
+  background-color: #95a46a;
+  color: white;
+  border: none;
+  font-size: 25px;
+  border-radius: 15px;
+  width: 120px;
+  height:35px;
+}
+
+.SubmitButton:hover{
+  opacity: .8;
+}
+
+.SubmitButton:active{
+  opacity: .5;
+}
+
 .CreateAccountButton{
-background-color: #ed7472;
+  background-color: #967969;
   color: white;
   border: none;
-  font-size: 20px;
-  height: 30px;
-  width: 100px;
+  font-size: 25px;
+  width: 120px;
   border-radius: 15px;
-}
-.container1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30vh;
-  color: #ed7472;
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-}
-.container2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30vh;
-  color: #ed7472;
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
+  height: 35px;
 }
 
-h1 {
-  color: #ed7472;
-}
-.SubmitButton{
-  background-color: #ed7472;
-  color: white;
-  border: none;
-  font-size: 20px;
-  height: 100px;
-  width: 100px;
-  border-radius: 15px;
-}
-.CreateAccountButton{
-  background-color: #ed7472;
-  color: white;
-  border: none;
-  font-size: 20px;
-  height: 80px;
-  width: 100px;
-  border-radius: 15px;
-}
-.container1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30vh;
-  color: #ed7472;
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-}
-.container2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30vh;
-  color: #ed7472;
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
+.CreateAccountButton:hover{
+  opacity: .8;
 }
 
-h1 {
-  color: #ed7472;
+.CreateAccountButton:active{
+  opacity: .5;
 }
-.SubmitButton{
-  background-color: #ed7472;
-  color: white;
-  border: none;
-  font-size: 20px;
-  height: 30px;
-  width: 100
+
+/* This is the Text and Input Styles */
+
+.Name{
+  font-size: 25px;
+  font-weight: 700;
+  margin-left: 10px;
+  text-wrap: balance;
+  width: 120px;
+  align-items: top;
+  line-height: 22px;
+  color:#e1dfa2;
+}
+
+.SiteText{
+  color:#95a46a;
+  font-size: 22px;
+  /* color: rgb(99, 156, 155); */
+
+}
+
+.SiteText2{
+  color: #95a46a;
+  font-size: 32.5px;
+  margin-top: 0;
+}
+
+.SignInInput{
+  width: 80%;
+  margin-left: 15px;
+}
+
+.SignInLabel{
+  margin-bottom: 5px;
+  margin-left: 15px;
+  color:#95a46a;
+  font-weight: 500;
+}
+
+/* This is the Image Styles */
+
+.Logo{
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
+
+.ProfilePicture{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  transform: scaleX(-1);
+}
+
+.search-icon{
+	height: 25px;
+	margin-top: 4px;
+}
+
+/* This is stuff that hasn't been used yet */
+
+.search-bar{
+  font-size: 16px;
+	flex: 1;
+	height: 36px;
+	padding-left: 10px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(204, 204, 204);
+	border-radius: 2px;
+	box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar::placeholder{
+	font-size: 16px;
+}
+
+.search-button{
+	height: 40px;
+	width: 66px;
+	background-color: rgb(247, 247, 247);
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(204, 204, 204);;
+	margin-left: -1px;
+	margin-right: 10px;
 }
