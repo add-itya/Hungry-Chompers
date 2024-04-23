@@ -73,7 +73,7 @@
   border-color: #967969;
   margin-bottom: 37.5px;
   padding: 10px;
-  height: 80%;
+  height: 84%;
 }
 
 .LoginWrapper {
@@ -221,7 +221,16 @@
 
 .SignInInput{
   width: 80%;
+  height: 18px;
   margin-left: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.SignInInput:focus{
+  background-color: rgba(211, 211, 211, 0.181);
+  outline-width: 1px;
+  outline-color: #967969;
 }
 
 .SignInLabel{

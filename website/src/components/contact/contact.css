@@ -1,0 +1,18 @@
+.ContactContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 65vw;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    border-radius: 35px;
+    background-color: white;
+}
+
+.ContactTitle{
+    font-size: 40px;
+    color: #967969;
+    margin-top: 20px;
+}

@@ -35,6 +35,8 @@ function AccountCreation() {
 
     let homepage = '/';
     let accountpage = '/account_creation';
+    let aboutpage = '/about_us';
+    let contactpage = '/contact';
 
     return (
 
@@ -43,14 +45,14 @@ function AccountCreation() {
             <div className="HeaderBar">
 
                 <div className = "Logo_Name">
-                    <img className = "Logo" src={logo}/>
-                    <p className = "Name">Hungry Chompers</p>
+                    <img onClick={() => goToNewPage(homepage)} className = "Logo" src={logo}/>
+                    <p onClick={() => goToNewPage(homepage)} className = "Name">Hungry Chompers</p>
                 </div>
 
                 <div className = "HeaderButtonDiv">
                     <button className='HeaderButton' onClick={() => goToNewPage(homepage)} >Home</button>
-                    <button className='HeaderButton'>About Us</button>
-                    <button className='HeaderButton'>Contact</button>
+                    <button className='HeaderButton' onClick={() => goToNewPage(aboutpage)}>About Us</button>
+                    <button className='HeaderButton' onClick={() => goToNewPage(contactpage)}>Contact</button>
                 </div>
 
                 <div className = "HeaderProfile">
@@ -59,33 +61,39 @@ function AccountCreation() {
        
             </div>
         
-        <div className="HomeContainer">
-            <div classemail='WelcomeText'>
-                <h1>Account Creation</h1>
-                <p>To make an account please enter an password and password below.</p>
+            <div className="AccountContainer">
+
+                <div className='TextInfoContainer'>
+                    <h1 className="SiteText2">Create Your Account</h1>
+                    <p className="SiteText">To make an account please enter an email and password below.</p>
+                </div>
+
+                <div className='SignUpWrapper'>
+            
+                    <form action="" className="AccountForm">
+
+                        <div className="SignUpInfo">
+                            <label class='SignUpLabel'> Email </label>
+                            <input class="SignUpInput" type="text"  value={email} onChange={(e) => setemail(e.target.value)} />
+                        </div>
+                        
+                        <div className="SignUpInfo">
+                            <label class='SignUpLabel'> Password </label>
+                            <input class="SignUpInput" type="password" value={password} onChange={(e) => setpassword(e.target.value)} />
+                        </div>
+
+                        <div className="ButtonWrapper">
+                            <button className="SignUpButton" type="submit" onClick={handleOnSubmit}>Sign Up</button>
+                        </div>
+                    
+                    </form>
+
+                    <div className="LinkHolder">
+                        <p className="SiteText">Already have an account? <a href="/">Sign In</a></p>
+                    </div>
+
+                </div>
             </div>
-            <div classemail='Creation'>
-                {/* <form>
-                    <label>
-                        password:
-                        <input type="text" email="password" />
-                    </label>
-                    <label>
-                        Password:
-                        <input type="password" email="password" />
-                    </label>
-                    <button classemail='SubmitButton'>Submit</button>
-                </form> */}
-                <form action="">
-                    <input type="text" placeholder="email"
-                    value={email} onChange={(e) => setemail(e.target.value)} />
-                    <input type="password" placeholder="password"
-                    value={password} onChange={(e) => setpassword(e.target.value)} />
-                    <button type="submit"
-                    onClick={handleOnSubmit}>submit</button>
-                </form>
-            </div>
-        </div>
         </div>
     );
 }
