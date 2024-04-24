@@ -5,29 +5,51 @@ import blankProfile from '../icons/BlankProfilePicture.png';
 import Profile from '../icons/ProfilePicture.png';
 import searchIcon from '../icons/search.svg';
 import { useNavigate } from 'react-router-dom';
+import {useState } from 'react';
 
-const foods = [
-  {
-    name: 'Pizza',
-    restaurant: 'Pizza Palace',
-    ingredients: ['Dough', 'Tomato Sauce', 'Cheese', 'Toppings'],
-  },
-  {
-    name: 'Burger',
-    restaurant: 'Burger Joint',
-    ingredients: ['Bun', 'Beef Patty', 'Lettuce', 'Tomato', 'Onion'],
-  },
-  {
-    name: 'Sushi',
-    restaurant: 'Sushi Bar',
-    ingredients: ['Rice', 'Fish', 'Seaweed', 'Vegetables'],
-  },
-  {
-    name: 'Tacos',
-    restaurant: 'Taco Truck',
-    ingredients: ['Tortillas', 'Beef', 'Lettuce', 'Tomato', 'Cheese'],
-  },
-];
+
+// const foods = [
+//   {
+//     name: 'Pizza',
+//     restaurant: 'Pizza Palace',
+//     ingredients: ['Dough', 'Tomato Sauce', 'Cheese', 'Toppings'],
+//   },
+//   {
+//     name: 'Burger',
+//     restaurant: 'Burger Joint',
+//     ingredients: ['Bun', 'Beef Patty', 'Lettuce', 'Tomato', 'Onion'],
+//   },
+//   {
+//     name: 'Sushi',
+//     restaurant: 'Sushi Bar',
+//     ingredients: ['Rice', 'Fish', 'Seaweed', 'Vegetables'],
+//   },
+//   {
+//     name: 'Tacos',
+//     restaurant: 'Taco Truck',
+//     ingredients: ['Tortillas', 'Beef', 'Lettuce', 'Tomato', 'Cheese'],
+//   },
+//   {
+//     name: 'Pizza',
+//     restaurant: 'Pizza Palace',
+//     ingredients: ['Dough', 'Tomato Sauce', 'Cheese', 'Toppings'],
+//   },
+//   {
+//     name: 'Burger',
+//     restaurant: 'Burger Joint',
+//     ingredients: ['Bun', 'Beef Patty', 'Lettuce', 'Tomato', 'Onion'],
+//   },
+//   {
+//     name: 'Sushi',
+//     restaurant: 'Sushi Bar',
+//     ingredients: ['Rice', 'Fish', 'Seaweed', 'Vegetables'],
+//   },
+//   {
+//     name: 'Tacos',
+//     restaurant: 'Taco Truck',
+//     ingredients: ['Tortillas', 'Beef', 'Lettuce', 'Tomato', 'Cheese'],
+//   },
+// ];
 
 const FoodItem = ({ name, restaurant, ingredients }) => (
   <div className="food-item">
@@ -37,12 +59,73 @@ const FoodItem = ({ name, restaurant, ingredients }) => (
   </div>
 );
 
-const signedIn = false;
+
 
 
 function HomePage(){
-  const sliceIndex = Math.ceil(foods.length / 2);
   const navigate = useNavigate();
+  const [signedIn, setSignedIn] = useState(false);
+  const [cuisine, setcuisine] = useState("");
+  const [foods, setFoods] = useState([]);
+
+  const mexicanFoods = [
+    {
+      name: 'Taco',
+      restaurant: 'Taco House',
+      ingredients: ['Tortilla', 'Beef', 'Lettuce', 'Tomato', 'Cheese'],
+    },
+  ];
+  const italianFoods = [
+    {
+      name: 'Pizza',
+      restaurant: 'Pizza Place',
+      ingredients: ['Dough', 'Tomato Sauce', 'Cheese', 'Toppings'],
+    },
+  ];
+  const americanFoods = [
+    {
+      name: 'Burger',
+      restaurant: 'Burger Joint',
+      ingredients: ['Bun', 'Beef Patty', 'Lettuce', 'Tomato', 'Onion'],
+    },
+  ];
+  const chineseFoods = [
+    {
+      name: 'Kung Pao Chicken',
+      restaurant: 'Wok Express',
+      ingredients: ['Chicken', 'Peppers', 'Peanuts', 'Soy Sauce'],
+    },
+  ];
+
+  const handleCuisineChange = (e) => {
+    const selectedCuisine = e.target.value;
+    setcuisine(selectedCuisine);
+    // Update foods array based on selected cuisine
+    switch (selectedCuisine) {
+      case 'Mexican':
+        setFoods(mexicanFoods);
+        break;
+      case 'Italian':
+        setFoods(italianFoods);
+        break;
+      case 'American':
+        setFoods(americanFoods);
+        break;
+      case 'Chinese':
+        setFoods(chineseFoods);
+        break;
+      default:
+        setFoods([mexicanFoods]);
+    }
+  };
+  const handleSignIn = () => {
+    setSignedIn(true);
+  };
+
+  const handleOnSubmit = async (e) => {
+      e.preventDefault();
+      setcuisine("");
+  }
 
   const goToNewPage = page => {
     navigate(page);
@@ -52,6 +135,8 @@ function HomePage(){
   let accountpage = '/account_creation';
   let aboutpage = '/about_us';
   let contactpage = '/contact';
+  let sliceIndex = Math.ceil(foods.length / 2);
+
 
   // Replace this If statement with a condition checking if the user has signed in already
   if (signedIn){
@@ -84,6 +169,14 @@ function HomePage(){
           <h2 class ='SiteText'>Scroll through the selection of local foods and select by cuisine to explore new foods
           or find foods you already love!</h2>
         </div>
+        <select class='CuisineDropdown' onChange={handleCuisineChange}>
+                                <option hidden disabled selected value> Choose </option>
+                                <option value="Mexican">Mexican</option>
+                                <option value="Italian">Italian</option>
+                                <option value="American">American</option>
+                                <option value="Chinese">Chinese</option>
+                            </select>
+        <h1>{cuisine}</h1>
         <div className="food-list">
           <div className="food-column">
             {foods.slice(0, sliceIndex).map((food, index) => (
@@ -168,7 +261,7 @@ else{
               </div>
               
               <div className="FormButtons">
-                <input type ="submit" className='SubmitButton' value='Sign In'/>
+                <button type ="submit" className='SubmitButton' onClick={handleSignIn}> Sign In </button>
                 <button onClick={() => goToNewPage(accountpage)} className='CreateAccountButton'>Sign Up</button>
               </div>
               
