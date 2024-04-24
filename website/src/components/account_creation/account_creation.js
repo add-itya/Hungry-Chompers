@@ -99,7 +99,7 @@ function AccountCreation() {
                                 <option hidden disabled selected value> Choose </option>
                                 <option value="Mexican">Mexican</option>
                                 <option value="Italian">Italian</option>
-                                <option value="Thai">Thai</option>
+                                <option value="American">American</option>
                                 <option value="Chinese">Chinese</option>
                             </select>
                         </div>
