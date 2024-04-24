@@ -133,6 +133,7 @@ function HomePage(){
         </div>
 
         <div className = "HeaderProfile">
+          <p>{getCookie("username")}</p>
           <img className='ProfilePicture' src={Profile}/>
         </div>      
        

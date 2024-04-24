@@ -23,6 +23,8 @@ function AccountCreation() {
         result = await result.json();
         console.warn(result);
         if (result) {
+            //set cookie for username
+            document.cookie = "username=" + username + "; path=/";
             alert("Data saved succesfully");
             setpassword("");
             setemail("");
