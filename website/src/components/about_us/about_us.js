@@ -23,6 +23,8 @@ function AboutUs(){
     let aboutpage = '/about_us';
     let contactpage = '/contact';
 
+    const signedIn = false;
+
     return(
 
         <div className="page">
@@ -41,7 +43,7 @@ function AboutUs(){
                 </div>
 
                 <div className = "HeaderProfile">
-                    <img className='ProfilePicture' src={blankProfile}/>
+                    <img className='ProfilePicture' src={signedIn ? Profile : blankProfile}/>
                 </div>      
        
             </div>

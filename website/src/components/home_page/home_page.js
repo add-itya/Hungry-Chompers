@@ -37,7 +37,7 @@ const FoodItem = ({ name, restaurant, ingredients }) => (
   </div>
 );
 
-const signedIn = false;
+const signedIn = true;
 
 
 function HomePage(){
