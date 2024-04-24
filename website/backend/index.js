@@ -72,6 +72,21 @@ app.post("/register", async (req, resp) => {
 	}
 });
 
+app.post("/login", async (req, resp) => {
+	try {
+	  const { email, password } = req.body;
+	  const user = await User.findOne({ email, password });
+	  if (user) {
+		resp.send({ success: true, message: "Login successful" });
+	  } else {
+		resp.status(401).send({ success: false, message: "Invalid email or password" });
+	  }
+	} catch (e) {
+	  resp.status(500).send({ success: false, message: "Something went wrong" });
+	}
+  });  
+
+
 app.get("/foods", async (req, resp) => {
     try {
         const foods = await Food.find();

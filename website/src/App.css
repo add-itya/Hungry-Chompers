@@ -1,3 +1,12 @@
+/* Set background color for html, body, and .App */
+html, body, .App {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #ed7472;
+}
+
+/* Center content vertically and horizontally */
 .App {
   display: flex;
   justify-content: center;
@@ -5,4 +14,3 @@
   height: 100vh;
   background-color: #F5DEB3;
 }
-

@@ -1,0 +1,35 @@
+/* main_page.css */
+
+/* Styling for the main page */
+.main-page {
+    background-color: #ed7472; /* Set background color for the general page */
+    color: white; /* Set text color to white for readability */
+    min-height: 100vh; /* Ensure the page takes at least the height of the viewport */
+    padding: 20px; /* Add some padding for better spacing */
+  }
+  
+  /* Styling for the items */
+  .item {
+    background-color: white; /* Set background color for items */
+    padding: 20px; /* Add padding for spacing between items */
+    margin-bottom: 20px; /* Add margin at the bottom of each item */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    color: black;
+  }
+  
+  /* Additional styling for item content */
+  .item h2 {
+    margin-top: 0; /* Remove default margin for h2 */
+  }
+  
+  .item p {
+    margin: 10px 0; /* Add some margin for paragraphs */
+  }
+  
+  .item img {
+    max-width: 100%; /* Ensure images don't exceed their container's width */
+    height: auto; /* Maintain aspect ratio of images */
+    display: block; /* Ensure images don't have any unwanted spacing */
+    margin-top: 10px; /* Add some spacing between image and text */
+  }
+  

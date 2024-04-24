@@ -1,0 +1,62 @@
+[
+    {
+        "username": "user1",
+        "title": "Delicious Pizza",
+        "description": "The pizza was amazing, perfectly cooked with fresh ingredients!",
+        "image": "pizza.png"
+    },
+    {
+        "username": "user2",
+        "title": "Best Burger Ever",
+        "description": "This burger is a game-changer, so juicy and flavorful!",
+        "image": "burger.png"
+    },
+    {
+        "username": "user3",
+        "title": "Fantastic Sushi",
+        "description": "The sushi was so fresh and the presentation was beautiful.",
+        "image": "sushi.png"
+    },
+    {
+        "username": "user4",
+        "title": "Mouthwatering Tacos",
+        "description": "These tacos were absolutely delicious, packed with flavor!",
+        "image": "tacos.png"
+    },
+    {
+        "username": "user5",
+        "title": "Heavenly Ramen",
+        "description": "The ramen broth was rich and flavorful, noodles perfectly cooked.",
+        "image": "ramen.png"
+    },
+    {
+        "username": "user6",
+        "title": "Divine Dessert",
+        "description": "This dessert was so decadent and satisfying, a perfect way to end the meal.",
+        "image": "dessert.png"
+    },
+    {
+        "username": "user7",
+        "title": "Awesome Avocado Toast",
+        "description": "The avocado toast was so tasty, perfectly seasoned and creamy.",
+        "image": "avocado_toast.png"
+    },
+    {
+        "username": "user8",
+        "title": "Spectacular Salad",
+        "description": "This salad was a delight, fresh veggies and a delicious dressing.",
+        "image": "salad.png"
+    },
+    {
+        "username": "user9",
+        "title": "Phenomenal Pho",
+        "description": "The pho broth was so flavorful and comforting, a must-try!",
+        "image": "pho.png"
+    },
+    {
+        "username": "user10",
+        "title": "Glorious Grilled Cheese",
+        "description": "This grilled cheese sandwich was perfectly gooey and satisfying.",
+        "image": "grilled_cheese.png"
+    }
+]
