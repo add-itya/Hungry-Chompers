@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import './App.css';
 import HomePage from './components/home_page/home_page';
 import AccountCreationPage from './components/account_creation/account_creation.js'; 
-import MainPage from './components/main_page/main_page'; // Import main page component
+import AboutUs from './components/about_us/about_us.js';
+import Contact from './components/contact/contact.js';
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Add state for logged in status
 
-  const navigateToAccountPage = () => {
-    setCurrentPage('account');
-  };
 
   const handleLogin = () => {
     setIsLoggedIn(true); // Set isLoggedIn to true upon successful login
@@ -18,11 +17,16 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {currentPage === 'home' && <HomePage navigateToAccountPage={navigateToAccountPage} handleLogin={handleLogin} />}
-      {currentPage === 'account' && <AccountCreationPage />}
-      {isLoggedIn && <MainPage />}
-    </div>
+      <div className="App">
+      <Router>
+        <Routes>
+            <Route path="/" element={<HomePage />}/>
+            <Route path="/account_creation" element={<AccountCreationPage/>}/>
+            <Route path="/about_us" element={<AboutUs/>}/>
+            <Route path="/contact" element={<Contact/>}/>
+          </Routes>
+        </Router>
+      </div>
   );
 }
 

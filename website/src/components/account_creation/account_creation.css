@@ -1,121 +1,83 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 40vh;
-    color: #ed7472;
-    background-color: white;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1 {
-    color: #ed7472;
-  }
-  .SubmitButton{
-    background-color: #ed7472;
-    color: white;
-    border: none;
-    font-size: 20px;
-    height: 30px;
-    width: 100px;
-    border-radius: 15px;
-  }
-  .CreateAccountButton{
-  background-color: #ed7472;
-    color: white;
-    border: none;
-    font-size: 20px;
-    height: 30px;
-    width: 100px;
-    border-radius: 15px;
-  }
-  .container1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 30vh;
-    color: #ed7472;
-    background-color: white;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-  }
-  .container2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 30vh;
-    color: #ed7472;
-    background-color: white;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1 {
-    color: #ed7472;
-  }
-  .SubmitButton{
-    background-color: #ed7472;
-    color: white;
-    border: none;
-    font-size: 20px;
-    height: 100px;
-    width: 100px;
-    border-radius: 15px;
-  }
-  .CreateAccountButton{
-    background-color: #ed7472;
-    color: white;
-    border: none;
-    font-size: 20px;
-    height: 80px;
-    width: 100px;
-    border-radius: 15px;
-  }
-  .container1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 30vh;
-    color: #ed7472;
-    background-color: white;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-  }
-  .container2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 30vh;
-    color: #ed7472;
-    background-color: white;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1 {
-    color: #ed7472;
-  }
+/* account_creation.css */
 
-label{
-    margin-right: 10px;
+/* Container */
+.AccountContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 25px;
+    margin-bottom: 80px;
+    height: 70vh;
 }
 
-  .SubmitButton{
-    background-color: #ed7472;
+/* Form */
+.AccountForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.SignUpInput{
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0 0 7px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.SignUpInput:focus{
+    background-color: rgba(211, 211, 211, 0.181);
+    outline-width: 1px;
+    outline-color: #967969;
+}
+
+.SignUpLabel{
+    font-size: 20px;
+    align-items: start;
+    margin-left: 9px;
+    color: #967969;
+}
+
+.SignUpInfo{
+    width:100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.SignUpButton{
+    background-color: #967969;
     color: white;
     border: none;
+    font-size: 26px;
+    width: 125px;
+    border-radius: 25px;
+    height: 45px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.SignUpButton:hover{
+    opacity: .8;
+}
+
+.SignUpButton:active{
+    opacity: .5;
+}
+
+.CuisineDropdown{
     font-size: 20px;
-    height: 50px;
-    width: 100
-  }
+    font-weight: 500;
+    height: 40px;
+    color: #95a46a;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    width: 17.5%;
+}
+
+/* Additional styles specific to the account creation page */
+/* ... */
