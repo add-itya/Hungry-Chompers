@@ -3,6 +3,7 @@ import './account_creation.css';
 import { useState } from 'react'
 import logo from '../icons/HungryChompersLogo.png';
 import blankProfile from '../icons/BlankProfilePicture.png';
+import Profile from '../icons/ProfilePicture.png';
 import { useNavigate } from 'react-router-dom';
 
 function AccountCreation() {
@@ -44,6 +45,8 @@ function AccountCreation() {
     let aboutpage = '/about_us';
     let contactpage = '/contact';
 
+    const signedIn = true;
+
     return (
 
         <div className="page">
@@ -61,7 +64,7 @@ function AccountCreation() {
                 </div>
 
                 <div className = "HeaderProfile">
-                    <img className='ProfilePicture' src={blankProfile}/>
+                    <img className='ProfilePicture' src={signedIn ? blankProfile : Profile}/>
                 </div>      
        
             </div>
