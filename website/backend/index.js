@@ -29,6 +29,14 @@ const UserSchema = new mongoose.Schema({
 const User = mongoose.model('users', UserSchema);
 User.createIndexes();
 
+const FoodSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    restaurant: { type: String, required: true },
+    ingredients: { type: [String], required: true }
+});
+const Food = mongoose.model('food', FoodSchema);
+
+
 // For backend and express
 const express = require('express');
 const app = express();
@@ -63,4 +71,16 @@ app.post("/register", async (req, resp) => {
 		resp.send("Something Went Wrong");
 	}
 });
+
+app.get("/foods", async (req, resp) => {
+    try {
+        const foods = await Food.find();
+        resp.json(foods);
+    } catch (err) {
+        console.error(err);
+        resp.status(500).send("Error retrieving foods");
+    }
+});
+
+
 app.listen(5000);
