@@ -16,12 +16,11 @@ const FoodItem = ({ name, restaurant, ingredients, cuisine }) => (
 );
 
 function HomePage(){
-  const [signedIn, setSignedIn] = useState(false);
   const [allfoods, setallfoods] = useState([]);
   const [foods, setFoods] = useState([]);
-  const [sliceIndex, setsliceIndex] = useState(0);
   const [cuisine, setcuisine] = useState("");
   const navigate = useNavigate();
+  const [slice, setSlice] = useState(2);
 
   useEffect(() => {
     const fetchFoods = async () => {
@@ -30,7 +29,9 @@ function HomePage(){
         const data = await response.json();
         setallfoods(data);
         setFoods(data);
-        setsliceIndex(Math.ceil(data.length / 2));
+        setSlice(Math.floor(data.length / 2));
+        console.log("slice is ")
+        console.log(slice)
       } catch (error) {
         console.error('Error fetching foods:', error);
       }
@@ -40,20 +41,33 @@ function HomePage(){
   }, []);
   
 
+  function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.startsWith(name + '=')) {
+        return cookie.substring(name.length + 1);
+      }
+    }
+    return null;
+  }
+
   const handleCuisineChange = (e) => {
     const selectedCuisine = e.target.value;
     setcuisine(selectedCuisine);
-    // set foods to elements in allfoods that match the selected cuisine value    
     setFoods(selectedCuisine ? allfoods.filter(food => food.cuisine === selectedCuisine): [allfoods]);
+    setSlice(2);
 
-  };
-  const handleSignIn = () => {
-    setSignedIn(true);
   };
 
   const goToNewPage = page => {
     navigate(page);
   };
+
+  const logout = () => {
+    document.cookie = "signedin=false; path=/";
+    window.location.reload();
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -78,7 +92,8 @@ function HomePage(){
   
       const data = JSON.parse(responseData);
       if (response.ok) {
-        setSignedIn(true);
+        document.cookie = "signedin=true; path=/";
+        window.location.reload();
         console.log(data.message);
       } else {
         alert("invalid email or password")
@@ -99,7 +114,7 @@ function HomePage(){
 
 
   // Replace this If statement with a condition checking if the user has signed in already
-  if (signedIn){
+  if (getCookie('signedin') === 'true'){
     return (
       <div className="page">
 
@@ -114,6 +129,7 @@ function HomePage(){
           <button className='HeaderButton' onClick={() => goToNewPage(homepage)} >Home</button>
           <button className='HeaderButton' onClick={() => goToNewPage(aboutpage)}>About Us</button>
           <button className='HeaderButton' onClick={() => goToNewPage(contactpage)}>Contact</button>
+          <button className='HeaderButton' onClick={logout}>Logout</button>
         </div>
 
         <div className = "HeaderProfile">
@@ -138,7 +154,7 @@ function HomePage(){
         <h1>{cuisine}</h1>
         <div className="food-list">
           <div className="food-column">
-            {foods.slice(0, sliceIndex).map((food, index) => (
+            {foods.slice(0, slice).map((food, index) => (
               <FoodItem
                 key={index}
                 name={food.name}
@@ -147,6 +163,17 @@ function HomePage(){
               />
             ))}
           </div>
+
+          <div className="food-column">
+            {foods.slice(slice).map((food, index) => (
+              <FoodItem
+                key={index}
+                name={food.name}
+                restaurant={food.restaurant}
+                ingredients={food.ingredients}
+              />
+            ))}
+            </div>
         </div>
       </div>
     </div>
@@ -209,7 +236,7 @@ else{
               </div>
               
               <div className="FormButtons">
-                <button type ="submit" className='SubmitButton' onClick={handleSignIn}> Sign In </button>
+                <button type ="submit" className='SubmitButton'> Sign In </button>
                 <button onClick={() => goToNewPage(accountpage)} className='CreateAccountButton'>Sign Up</button>
               </div>
               

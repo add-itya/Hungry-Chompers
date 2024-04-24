@@ -7,15 +7,6 @@ import Contact from './components/contact/contact.js';
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Add state for logged in status
-
-
-  const handleLogin = () => {
-    setIsLoggedIn(true); // Set isLoggedIn to true upon successful login
-    setCurrentPage('main'); // Set current page to main upon successful login
-  };
-
   return (
       <div className="App">
       <Router>
