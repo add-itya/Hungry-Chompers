@@ -76,10 +76,25 @@ function AccountCreation() {
                             <label class='SignUpLabel'> Email </label>
                             <input class="SignUpInput" type="text"  value={email} onChange={(e) => setemail(e.target.value)} />
                         </div>
-                        
+
+                        <div className="SignUpInfo">
+                            <label class='SignUpLabel'> Username </label>
+                            <input class="SignUpInput" type="text" />
+                        </div>
+                                            
                         <div className="SignUpInfo">
                             <label class='SignUpLabel'> Password </label>
                             <input class="SignUpInput" type="password" value={password} onChange={(e) => setpassword(e.target.value)} />
+                        </div>
+
+                        <div className="SignUpInfo">
+                            <label class='SignUpLabel'> Choose your favorite cuisine </label>
+                            <select class='CuisineDropdown' id="cars" name="cars">
+                                <option value="Mexican">Mexican</option>
+                                <option value="Italian">Italian</option>
+                                <option value="Thai">Thai</option>
+                                <option value="Chinese">Chinese</option>
+                            </select>
                         </div>
 
                         <div className="ButtonWrapper">

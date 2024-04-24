@@ -9,7 +9,7 @@
     background-color: white;
     border-radius: 25px;
     margin-bottom: 250px;
-    height: 50vh;
+    height: 70vh;
 }
 
 /* Form */
@@ -64,6 +64,13 @@
 
 .SignUpButton:active{
     opacity: .5;
+}
+
+.CuisineDropdown{
+    font-size: 25px;
+    height: 40px;
+    color: #95a46a;
+    margin-top: 10px;
 }
 
 /* Additional styles specific to the account creation page */
