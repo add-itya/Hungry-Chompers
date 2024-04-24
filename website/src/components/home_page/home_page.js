@@ -15,12 +15,12 @@ const FoodItem = ({ name, restaurant, ingredients, cuisine }) => (
   </div>
 );
 
-
-
 function HomePage(){
   const [signedIn, setSignedIn] = useState(false);
+  const [allfoods, setallfoods] = useState([]);
   const [foods, setFoods] = useState([]);
   const [sliceIndex, setsliceIndex] = useState(0);
+  const [cuisine, setcuisine] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,8 +28,9 @@ function HomePage(){
       try {
         const response = await fetch('http://localhost:5000/food');
         const data = await response.json();
+        setallfoods(data);
         setFoods(data);
-        setsliceIndex(Math.ceil(foods.length / 2));
+        setsliceIndex(Math.ceil(data.length / 2));
       } catch (error) {
         console.error('Error fetching foods:', error);
       }
@@ -37,6 +38,18 @@ function HomePage(){
 
     fetchFoods();
   }, []);
+  
+
+  const handleCuisineChange = (e) => {
+    const selectedCuisine = e.target.value;
+    setcuisine(selectedCuisine);
+    // set foods to elements in allfoods that match the selected cuisine value    
+    setFoods(selectedCuisine ? allfoods.filter(food => food.cuisine === selectedCuisine): [allfoods]);
+
+  };
+  const handleSignIn = () => {
+    setSignedIn(true);
+  };
 
   const goToNewPage = page => {
     navigate(page);
@@ -84,6 +97,7 @@ function HomePage(){
   let aboutpage = '/about_us';
   let contactpage = '/contact';
 
+
   // Replace this If statement with a condition checking if the user has signed in already
   if (signedIn){
     return (
@@ -109,12 +123,19 @@ function HomePage(){
       </div>
 
       <div className="HomeContainer2">
-
         <div className='LoggedInBar' >
           <h1 class='SiteText'>Logged in!</h1>
           <h2 class ='SiteText'>Scroll through the selection of local foods and select by cuisine to explore new foods
           or find foods you already love!</h2>
         </div>
+        <select class='CuisineDropdown' onChange={handleCuisineChange}>
+          <option hidden disabled selected value> Choose </option>
+          <option value="Mexican">Mexican</option>
+          <option value="Italian">Italian</option>
+          <option value="American">American</option>
+          <option value="Chinese">Chinese</option>
+        </select>
+        <h1>{cuisine}</h1>
         <div className="food-list">
           <div className="food-column">
             {foods.slice(0, sliceIndex).map((food, index) => (
@@ -126,17 +147,6 @@ function HomePage(){
               />
             ))}
           </div>
-          <div className="food-column">
-            {foods.slice(sliceIndex).map((food, index) => (
-              <FoodItem
-                key={index}
-                name={food.name}
-                restaurant={food.restaurant}
-                ingredients={food.ingredients}
-              />
-            ))}
-          </div>
-
         </div>
       </div>
     </div>
@@ -199,7 +209,7 @@ else{
               </div>
               
               <div className="FormButtons">
-                <input type ="submit" className='SubmitButton' value='Sign In'/>
+                <button type ="submit" className='SubmitButton' onClick={handleSignIn}> Sign In </button>
                 <button onClick={() => goToNewPage(accountpage)} className='CreateAccountButton'>Sign Up</button>
               </div>
               
