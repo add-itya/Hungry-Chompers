@@ -5,31 +5,9 @@ import blankProfile from '../icons/BlankProfilePicture.png';
 import Profile from '../icons/ProfilePicture.png';
 import searchIcon from '../icons/search.svg';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const foods = [
-  {
-    name: 'Pizza',
-    restaurant: 'Pizza Palace',
-    ingredients: ['Dough', 'Tomato Sauce', 'Cheese', 'Toppings'],
-  },
-  {
-    name: 'Burger',
-    restaurant: 'Burger Joint',
-    ingredients: ['Bun', 'Beef Patty', 'Lettuce', 'Tomato', 'Onion'],
-  },
-  {
-    name: 'Sushi',
-    restaurant: 'Sushi Bar',
-    ingredients: ['Rice', 'Fish', 'Seaweed', 'Vegetables'],
-  },
-  {
-    name: 'Tacos',
-    restaurant: 'Taco Truck',
-    ingredients: ['Tortillas', 'Beef', 'Lettuce', 'Tomato', 'Cheese'],
-  },
-];
-
-const FoodItem = ({ name, restaurant, ingredients }) => (
+const FoodItem = ({ name, restaurant, ingredients, cuisine }) => (
   <div className="food-item">
     <h2>{name}</h2>
     <p>Restaurant: {restaurant}</p>
@@ -41,8 +19,24 @@ const FoodItem = ({ name, restaurant, ingredients }) => (
 
 function HomePage(){
   const [signedIn, setSignedIn] = useState(false);
-  const sliceIndex = Math.ceil(foods.length / 2);
+  const [foods, setFoods] = useState([]);
+  const [sliceIndex, setsliceIndex] = useState(0);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchFoods = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/food');
+        const data = await response.json();
+        setFoods(data);
+        setsliceIndex(Math.ceil(foods.length / 2));
+      } catch (error) {
+        console.error('Error fetching foods:', error);
+      }
+    };
+
+    fetchFoods();
+  }, []);
 
   const goToNewPage = page => {
     navigate(page);
