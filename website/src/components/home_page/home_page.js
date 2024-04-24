@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './home_page.css';
 import logo from '../icons/HungryChompersLogo.png';
 import blankProfile from '../icons/BlankProfilePicture.png';
@@ -59,10 +59,12 @@ const FoodItem = ({ name, restaurant, ingredients }) => (
   </div>
 );
 
-
+const signedIn = false;
 
 
 function HomePage(){
+  const [signedIn, setSignedIn] = useState(false);
+  const sliceIndex = Math.ceil(foods.length / 2);
   const navigate = useNavigate();
   const [signedIn, setSignedIn] = useState(false);
   const [cuisine, setcuisine] = useState("");
@@ -131,8 +133,45 @@ function HomePage(){
     navigate(page);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const email = formData.get('email');
+    const password = formData.get('password');
+    console.log('Username:', email);
+    console.log('Password:', password);
+    console.log('Clicked');
+  
+    try {
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      const responseData = await response.text();
+      console.log(responseData);
+  
+      const data = JSON.parse(responseData);
+      if (response.ok) {
+        setSignedIn(true);
+        console.log(data.message);
+      } else {
+        alert("invalid email or password")
+        console.error(data.message);
+      }
+    } catch (error) {
+      console.error('Something went wrong:', error);
+    }
+  };
+  
+  
+
   let homepage = '/';
   let accountpage = '/account_creation';
+  let mainpage = '/main';
   let aboutpage = '/about_us';
   let contactpage = '/contact';
   let sliceIndex = Math.ceil(foods.length / 2);
@@ -248,7 +287,7 @@ else{
 
           <div className='SignIn'>
             <h2 text-align='left' className="SiteText2">Sign In</h2>
-            <form id='SignInInfo' class='SignInForm'>
+            <form id='SignInInfo' class='SignInForm' onSubmit={handleSubmit}>
 
               <div className="InfoEntry">
                 <label class='SignInLabel'> Email </label>
@@ -276,5 +315,8 @@ else{
   );
 }
 }
+
+
+
 
 export default HomePage;

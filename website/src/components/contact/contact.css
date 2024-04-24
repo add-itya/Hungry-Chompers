@@ -1,4 +1,4 @@
-.ContactContainer{
+.FavoriteContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,15 @@
     background-color: white;
 }
 
-.ContactTitle{
+.FavoriteFoodsContainer{
+    display: flex;
+    flex-direction: column;
+    height:95%;
+    width: 95%;
+    overflow-y: scroll;
+}
+
+.FavoriteTitle{
     font-size: 40px;
     color: #967969;
     margin-top: 20px;
