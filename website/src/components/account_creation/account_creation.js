@@ -81,7 +81,7 @@ function AccountCreation() {
                         </div>
 
                         <div className="SignUpInfo">
-                            <label class='SignUpLabel'> Username </label>
+                            <label class='SignUpLabel'> Display Name </label>
                             <input class="SignUpInput" type="text" value={username} onChange={(e) => setusername(e.target.value)} />
                         </div>
                                             
@@ -91,8 +91,9 @@ function AccountCreation() {
                         </div>
 
                         <div className="SignUpInfo">
-                            <label class='SignUpLabel'> Choose your favorite cuisine </label>
+                            <label class='SignUpLabel'> Favorite Cuisine </label>
                             <select class='CuisineDropdown' onChange={(e) => setcuisine(e.target.value)}>
+                                <option hidden disabled selected value> Choose </option>
                                 <option value="Mexican">Mexican</option>
                                 <option value="Italian">Italian</option>
                                 <option value="Thai">Thai</option>
