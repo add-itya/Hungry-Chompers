@@ -5,7 +5,6 @@ import blankProfile from '../icons/BlankProfilePicture.png';
 import Profile from '../icons/ProfilePicture.png';
 import searchIcon from '../icons/search.svg';
 import { useNavigate } from 'react-router-dom';
-import {useState } from 'react';
 
 
 // const foods = [
@@ -59,14 +58,9 @@ const FoodItem = ({ name, restaurant, ingredients }) => (
   </div>
 );
 
-const signedIn = false;
-
-
 function HomePage(){
   const [signedIn, setSignedIn] = useState(false);
-  const sliceIndex = Math.ceil(foods.length / 2);
   const navigate = useNavigate();
-  const [signedIn, setSignedIn] = useState(false);
   const [cuisine, setcuisine] = useState("");
   const [foods, setFoods] = useState([]);
 
@@ -98,6 +92,7 @@ function HomePage(){
       ingredients: ['Chicken', 'Peppers', 'Peanuts', 'Soy Sauce'],
     },
   ];
+  
 
   const handleCuisineChange = (e) => {
     const selectedCuisine = e.target.value;
@@ -122,6 +117,7 @@ function HomePage(){
   };
   const handleSignIn = () => {
     setSignedIn(true);
+    setFoods(mexicanFoods);
   };
 
   const handleOnSubmit = async (e) => {
@@ -202,19 +198,18 @@ function HomePage(){
       </div>
 
       <div className="HomeContainer2">
-
         <div className='LoggedInBar' >
           <h1 class='SiteText'>Logged in!</h1>
           <h2 class ='SiteText'>Scroll through the selection of local foods and select by cuisine to explore new foods
           or find foods you already love!</h2>
         </div>
         <select class='CuisineDropdown' onChange={handleCuisineChange}>
-                                <option hidden disabled selected value> Choose </option>
-                                <option value="Mexican">Mexican</option>
-                                <option value="Italian">Italian</option>
-                                <option value="American">American</option>
-                                <option value="Chinese">Chinese</option>
-                            </select>
+          <option hidden disabled selected value> Choose </option>
+          <option value="Mexican">Mexican</option>
+          <option value="Italian">Italian</option>
+          <option value="American">American</option>
+          <option value="Chinese">Chinese</option>
+        </select>
         <h1>{cuisine}</h1>
         <div className="food-list">
           <div className="food-column">
