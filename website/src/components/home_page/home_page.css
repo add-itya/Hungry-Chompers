@@ -38,6 +38,20 @@
   width: 60%;
 }
 
+.HomeContainer2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  color: #ed7472;
+  background-color: #F5DEB3;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  width: 60%;
+}
+
 /* These are the containers within HeaderBar */
 
 .Logo_Name{
@@ -65,6 +79,18 @@
 /* These are the containers within HomeContainer */
 
 .InfoBar{
+  flex: 1.5;
+  background-color: white;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #967969;
+  margin-bottom: 37.5px;
+  padding: 10px;
+  height: 84%;
+}
+
+.LoggedInBar{
   flex: 1.5;
   background-color: white;
   border-radius: 25px;
@@ -287,4 +313,48 @@
 	border-color: rgb(204, 204, 204);;
 	margin-left: -1px;
 	margin-right: 10px;
+}
+
+.FoodWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+  color: #ed7472;
+  background-color: #F5DEB3;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  flex: 2;
+  margin-left: 25px;
+  margin-bottom: 100px;
+}
+
+
+.food-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; 
+}
+
+.food-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(50% - 20px); 
+  margin: 10px;
+}
+
+.food-item {
+  background-color: white;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: 500px;
+  border-color: #967969;
+  color:#95a46a;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
 }
