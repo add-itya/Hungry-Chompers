@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 function AccountCreation() {
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
+    const [username, setusername] = useState("");
+    const [cuisine, setcuisine] = useState("");
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         let result = await fetch(
@@ -24,6 +26,8 @@ function AccountCreation() {
             alert("Data saved succesfully");
             setpassword("");
             setemail("");
+            setusername("");
+            setcuisine("");
         }
     }
 
@@ -41,7 +45,6 @@ function AccountCreation() {
     return (
 
         <div className="page">
-
             <div className="HeaderBar">
 
                 <div className = "Logo_Name">
@@ -79,7 +82,7 @@ function AccountCreation() {
 
                         <div className="SignUpInfo">
                             <label class='SignUpLabel'> Username </label>
-                            <input class="SignUpInput" type="text" />
+                            <input class="SignUpInput" type="text" value={username} onChange={(e) => setusername(e.target.value)} />
                         </div>
                                             
                         <div className="SignUpInfo">
@@ -89,7 +92,7 @@ function AccountCreation() {
 
                         <div className="SignUpInfo">
                             <label class='SignUpLabel'> Choose your favorite cuisine </label>
-                            <select class='CuisineDropdown' id="cars" name="cars">
+                            <select class='CuisineDropdown' onChange={(e) => setcuisine(e.target.value)}>
                                 <option value="Mexican">Mexican</option>
                                 <option value="Italian">Italian</option>
                                 <option value="Thai">Thai</option>
