@@ -42,12 +42,29 @@ function Contact(){
        
             </div>
 
-            <div className="ContactContainer">
+            <div className="FavoriteContainer">
 
-                <h1 className="ContactTitle">Contact us</h1>
+                <h1 className="FavoriteTitle">Here are your favorites!</h1>
 
-                <p>WAa</p>
-
+                <div className = "FavoriteFoodsContainer">
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                    <p> Food 1</p>
+                </div>
                 
             </div>
 
