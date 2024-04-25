@@ -3,17 +3,12 @@ import './home_page.css';
 import logo from '../icons/HungryChompersLogo.png';
 import blankProfile from '../icons/BlankProfilePicture.png';
 import Profile from '../icons/ProfilePicture.png';
+import blankBookmark from '../icons/NoBookmark.png';
+import Bookmark from '../icons/Bookmark.png';
 import searchIcon from '../icons/search.svg';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const FoodItem = ({ name, restaurant, ingredients, cuisine }) => (
-  <div className="food-item">
-    <h2>{name}</h2>
-    <p>Restaurant: {restaurant}</p>
-    <p>Ingredients: {ingredients.join(', ')}</p>
-  </div>
-);
 
 function HomePage(){
   const [allfoods, setallfoods] = useState([]);
@@ -21,6 +16,19 @@ function HomePage(){
   const [cuisine, setcuisine] = useState("");
   const navigate = useNavigate();
   const [slice, setSlice] = useState(2);
+  const [savedFoodIndexes, setSavedFoodIndexes] = useState(new Array(16).fill(-1));
+  // const savedFoodIndexes = new Array(16).fill(-1);
+
+  const FoodItem = ({ index, name, restaurant, ingredients, saved }) => (
+    <div className="food-item">
+      <h2>{name}</h2>
+      <p>Restaurant: {restaurant}</p>
+      <p>Ingredients: {ingredients.join(', ')}</p>
+      <div className="Bookmark">
+        <img className="BookmarkImg" src={(saved === 1) ? Bookmark: blankBookmark} onClick={() => SaveFood(saved, index)} />
+        </div>
+    </div>
+  );
 
   useEffect(() => {
     const fetchFoods = async () => {
@@ -30,8 +38,8 @@ function HomePage(){
         setallfoods(data);
         setFoods(data);
         setSlice(Math.floor(data.length / 2));
-        console.log("slice is ")
-        console.log(slice)
+        console.log("slice is ");
+        console.log(slice);
       } catch (error) {
         console.error('Error fetching foods:', error);
       }
@@ -52,6 +60,15 @@ function HomePage(){
     return null;
   }
 
+  const SaveFood = (saved, index) => {
+    console.log('Index:', index);
+    console.log('Foods:', allfoods);
+    console.log('Saved Foods:', savedFoodIndexes);
+    const updatedIndexes = [...savedFoodIndexes]; // Create a copy of the state array
+    updatedIndexes[index] = -updatedIndexes[index]; // Update the value
+    setSavedFoodIndexes(updatedIndexes); // Update the state
+  }
+
   const handleCuisineChange = (e) => {
     const selectedCuisine = e.target.value;
     setcuisine(selectedCuisine);
@@ -62,6 +79,12 @@ function HomePage(){
 
   const goToNewPage = page => {
     navigate(page);
+  };
+
+  const goToFavoritesPage = () => {
+    const savedIndexes = encodeURIComponent(JSON.stringify(savedFoodIndexes));
+    const foodData = encodeURIComponent(JSON.stringify(foods)); // Assuming foods contains all food items
+    navigate(`/favorites?savedIndexes=${savedIndexes}&foodData=${foodData}`);
   };
 
   const logout = () => {
@@ -96,7 +119,7 @@ function HomePage(){
         window.location.reload();
         console.log(data.message);
       } else {
-        alert("invalid email or password")
+        alert("Invalid Email or Password")
         console.error(data.message);
       }
     } catch (error) {
@@ -110,7 +133,7 @@ function HomePage(){
   let accountpage = '/account_creation';
   let mainpage = '/main';
   let aboutpage = '/about_us';
-  let contactpage = '/contact';
+  let favoritepage = '/favorites';
 
 
   // Replace this If statement with a condition checking if the user has signed in already
@@ -128,12 +151,12 @@ function HomePage(){
         <div className = "HeaderButtonDiv">
           <button className='HeaderButton' onClick={() => goToNewPage(homepage)} >Home</button>
           <button className='HeaderButton' onClick={() => goToNewPage(aboutpage)}>About Us</button>
-          <button className='HeaderButton' onClick={() => goToNewPage(contactpage)}>Contact</button>
+          <button className='HeaderButton' onClick={() => goToFavoritesPage()}>Favorites</button>
           <button className='HeaderButton' onClick={logout}>Logout</button>
         </div>
 
         <div className = "HeaderProfile">
-          <p>{getCookie("username")}</p>
+          <p className = "DisplayName">{getCookie("username")}</p>
           <img className='ProfilePicture' src={Profile}/>
         </div>      
        
@@ -141,26 +164,27 @@ function HomePage(){
 
       <div className="HomeContainer2">
         <div className='LoggedInBar' >
-          <h1 class='SiteText'>Logged in!</h1>
-          <h2 class ='SiteText'>Scroll through the selection of local foods and select by cuisine to explore new foods
-          or find foods you already love!</h2>
+          <h1 class='SiteText'>Welcome to Hungry Chompers {getCookie("username")}!</h1>
+          <h2 class ='SiteText'>Scroll through the selection of local foods and save those that you find interesting to look at later!</h2>
         </div>
-        <select class='CuisineDropdown' onChange={handleCuisineChange}>
+
+        <select class='CuisineDropdown2' onChange={handleCuisineChange}>
           <option hidden disabled selected value> Choose </option>
           <option value="Mexican">Mexican</option>
           <option value="Italian">Italian</option>
           <option value="American">American</option>
           <option value="Chinese">Chinese</option>
         </select>
-        <h1>{cuisine}</h1>
+
         <div className="food-list">
           <div className="food-column">
             {foods.slice(0, slice).map((food, index) => (
               <FoodItem
-                key={index}
+                index={index}
                 name={food.name}
                 restaurant={food.restaurant}
                 ingredients={food.ingredients}
+                saved = {savedFoodIndexes[index]}
               />
             ))}
           </div>
@@ -168,10 +192,11 @@ function HomePage(){
           <div className="food-column">
             {foods.slice(slice).map((food, index) => (
               <FoodItem
-                key={index}
+                index={index + slice}
                 name={food.name}
                 restaurant={food.restaurant}
                 ingredients={food.ingredients}
+                saved = {savedFoodIndexes[index + slice]}
               />
             ))}
             </div>
@@ -194,7 +219,7 @@ else{
         <div className = "HeaderButtonDiv">
           <button className='HeaderButton' onClick={() => goToNewPage(homepage)} >Home</button>
           <button className='HeaderButton' onClick={() => goToNewPage(aboutpage)}>About Us</button>
-          <button className='HeaderButton' onClick={() => goToNewPage(contactpage)}>Contact</button>
+          <button className='HeaderButton' onClick={() => goToNewPage(favoritepage)}>Favorites</button>
         </div>
 
         <div className = "HeaderProfile">
@@ -214,13 +239,6 @@ else{
         </div>
 
         <div className="LoginWrapper">
-          <div className='WelcomeText'>
-
-            {/* <input class = "search-bar" type="text" placeholder="Search"/>
-            <button class = "search-button">
-              <img class = "search-icon" src = {searchIcon}/>
-            </button> */}
-          </div>
 
           <div className='SignIn'>
             <h2 text-align='left' className="SiteText2">Sign In</h2>

@@ -50,6 +50,7 @@
   padding: 20px;
   text-align: center;
   width: 60%;
+  margin-bottom: 40px;
 }
 
 /* These are the containers within HeaderBar */
@@ -97,9 +98,9 @@
   border-style: solid;
   border-width: 3px;
   border-color: #967969;
-  margin-bottom: 37.5px;
+  margin-bottom: 5px;
   padding: 10px;
-  height: 84%;
+  height: 30%;
 }
 
 .LoginWrapper {
@@ -266,6 +267,17 @@
   font-weight: 500;
 }
 
+.DisplayName{
+  font-size: 15px;
+  font-weight: 700;
+  margin-left: 10px;
+  margin-right: 5px;
+  text-wrap: nowrap;
+  align-items: top;
+  color:#e1dfa2;
+
+}
+
 /* This is the Image Styles */
 
 .Logo{
@@ -315,29 +327,16 @@
 	margin-right: 10px;
 }
 
-.FoodWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 65vh;
-  color: #ed7472;
-  background-color: #F5DEB3;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-  flex: 2;
-  margin-left: 25px;
-  margin-bottom: 100px;
-}
-
-
 .food-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; 
+  justify-content: space-evenly; 
   overflow-y: scroll;
   overflow-x: hidden;
+  height: 70%;
+  width: 60vw;
+  background-color: #967969;
+  border-radius: 25px;
 }
 
 .food-column {
@@ -352,11 +351,35 @@
   background-color: white;
   border-radius: 25px;
   border-style: solid;
-  border-width: 500px;
+  border-width: 2px;
   border-color: #967969;
   color:#95a46a;
-  border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
-  width: 100%;
+  width: 70%;
+  height: 85%;
+  position: relative;
+}
+
+.CuisineDropdown2{
+  font-size: 20px;
+  font-weight: 500;
+  height: 40px;
+  color: #95a46a;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 30px;;
+  border-radius: 5px;
+  width: 12.5%;
+}
+
+.Bookmark{
+  position: absolute;
+  top:10px;
+  right:10px;
+}
+
+.BookmarkImg{
+  height: 25px;
+  width: 25px;
 }

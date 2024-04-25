@@ -18,12 +18,26 @@ function AboutUs(){
         navigate(page);
     };
 
+    const logout = () => {
+        document.cookie = "signedin=false; path=/";
+        window.location.reload();
+      }
+
     let homepage = '/';
     let accountpage = '/account_creation';
     let aboutpage = '/about_us';
-    let contactpage = '/contact';
+    let favoritepage = '/favorites';
 
-    const signedIn = false;
+    function getCookie(name) {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.startsWith(name + '=')) {
+            return cookie.substring(name.length + 1);
+          }
+        }
+        return null;
+      }
 
     return(
 
@@ -39,11 +53,13 @@ function AboutUs(){
                 <div className = "HeaderButtonDiv">
                     <button className='HeaderButton' onClick={() => goToNewPage(homepage)} >Home</button>
                     <button className='HeaderButton' onClick={() => goToNewPage(aboutpage)}>About Us</button>
-                    <button className='HeaderButton' onClick={() => goToNewPage(contactpage)}>Contact</button>
+                    <button className='HeaderButton' onClick={() => goToNewPage(favoritepage)}>Favorites</button>
+                    {(getCookie('signedin') === 'true') ? <button className='HeaderButton' onClick={logout}>Logout</button> : <></>}
                 </div>
 
                 <div className = "HeaderProfile">
-                    <img className='ProfilePicture' src={signedIn ? Profile : blankProfile}/>
+                    {(getCookie('signedin') === 'true') ? <p className = "DisplayName">{getCookie("username")}</p> : <></>}
+                    <img className='ProfilePicture' src={(getCookie('signedin') === 'true') ? Profile : blankProfile}/>
                 </div>      
        
             </div>

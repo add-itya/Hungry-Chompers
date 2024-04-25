@@ -3,7 +3,7 @@ import './App.css';
 import HomePage from './components/home_page/home_page';
 import AccountCreationPage from './components/account_creation/account_creation.js'; 
 import AboutUs from './components/about_us/about_us.js';
-import Contact from './components/contact/contact.js';
+import Contact from './components/favorites/favorites.js';
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
             <Route path="/" element={<HomePage />}/>
             <Route path="/account_creation" element={<AccountCreationPage/>}/>
             <Route path="/about_us" element={<AboutUs/>}/>
-            <Route path="/contact" element={<Contact/>}/>
+            <Route path="/favorites" element={<Contact/>}/>
           </Routes>
         </Router>
       </div>

@@ -43,9 +43,7 @@ function AccountCreation() {
     let homepage = '/';
     let accountpage = '/account_creation';
     let aboutpage = '/about_us';
-    let contactpage = '/contact';
-
-    const signedIn = true;
+    let favoritepage = '/favorites';
 
     return (
 
@@ -60,11 +58,11 @@ function AccountCreation() {
                 <div className = "HeaderButtonDiv">
                     <button className='HeaderButton' onClick={() => goToNewPage(homepage)} >Home</button>
                     <button className='HeaderButton' onClick={() => goToNewPage(aboutpage)}>About Us</button>
-                    <button className='HeaderButton' onClick={() => goToNewPage(contactpage)}>Contact</button>
+                    <button className='HeaderButton' onClick={() => goToNewPage(favoritepage)}>Contact</button>
                 </div>
 
                 <div className = "HeaderProfile">
-                    <img className='ProfilePicture' src={signedIn ? blankProfile : Profile}/>
+                    <img className='ProfilePicture' src={blankProfile}/>
                 </div>      
        
             </div>
